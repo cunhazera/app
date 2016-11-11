@@ -24,4 +24,4 @@ ALTER TABLE Product_Type ADD CONSTRAINT fk_product_type_impost FOREIGN KEY (impo
 REFERENCES impost(id) MATCH FULL;
 
 ALTER TABLE product ADD CONSTRAINT fk_product_product_type FOREIGN KEY (product_type)
-REFERENCES Product_Type(id) MATCH FULL;
+REFERENCES Product_Type(id);
