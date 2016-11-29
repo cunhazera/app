@@ -10,17 +10,15 @@ import javax.sql.DataSource;
 
 import org.postgresql.Driver;
 
-import com.jcabi.log.Logger;
-
 public class PostgresSource implements DataSource {
 
+	private static final String PSQL_URL = "jdbc:postgresql://localhost:5432/tax?user=postgres&password=password&ssl=true";
 	private static final Driver DRIVER = new Driver();
 
 	public Connection getConnection() throws SQLException {
-		Connection connection = DRIVER.connect(
-				"jdbc:postgresql://localhost:5432/tax?user=postgres&password=password&ssl=true", new Properties());
-		Logger.info(this, "Sucessfull connection");
-		return connection;
+		return PostgresSource.DRIVER.connect(
+					PSQL_URL, new Properties()
+				);
 	}
 
 	public PrintWriter getLogWriter() throws SQLException {

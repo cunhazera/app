@@ -20,7 +20,8 @@ public class Status {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String tests() throws SQLException {
 		DataSource source = new PostgresSource();
-		String name = new JdbcSession(source).sql("SELECT NM_IMPOST FROM IMPOST")
+		String name = new JdbcSession(source)
+				.sql("SELECT id FROM IMPOST")
 				.select(new SingleOutcome<String>(String.class));
 		return name;
 	}
